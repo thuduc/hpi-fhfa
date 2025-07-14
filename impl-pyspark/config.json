@@ -1,0 +1,28 @@
+{
+  "min_price": 10000,
+  "max_price": 10000000,
+  "max_holding_period_years": 20,
+  "min_pairs_threshold": 30,
+  "outlier_std_threshold": 3.0,
+  "frequency": "monthly",
+  "base_period": null,
+  "weighting_scheme": "equal",
+  "geography_levels": ["tract", "county", "cbsa", "state", "national"],
+  "clustering_method": "kmeans",
+  "n_clusters": 500,
+  "min_cluster_size": 50,
+  "max_cluster_size": 500,
+  "spark_app_name": "RSAI Model",
+  "spark_master": "local[*]",
+  "spark_executor_memory": "4g",
+  "spark_driver_memory": "4g",
+  "spark_config": {
+    "spark.sql.shuffle.partitions": "200",
+    "spark.default.parallelism": "100"
+  },
+  "input_files": {
+    "transactions": "data/transactions.parquet",
+    "properties": "data/properties.parquet"
+  },
+  "output_dir": "output"
+}

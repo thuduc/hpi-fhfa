@@ -1,0 +1,738 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.4, pytest-8.4.1, pluggy-1.6.0 -- /Users/duc/projects/claude/hpi-fhfa/impl-polars/venv/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /Users/duc/projects/claude/hpi-fhfa/impl-polars
+configfile: pytest.ini
+plugins: anyio-4.9.0, xdist-3.8.0, cov-6.2.1
+collecting ... collected 125 items
+
+tests/integration/test_integration.py::TestRSAIPipeline::test_full_pipeline 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_full_pipeline0/test_data/transactions.parquet
+FAILED                                                                   [  0%]
+tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_multiple_counties 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Identifying repeat sales
+FAILED                                                                   [  1%]
+tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_error_handling 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Identifying repeat sales
+FAILED                                                                   [  2%]
+tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_different_frequencies 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_f0/test_data/transactions.parquet
+FAILED                                                                   [  3%]
+tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_different_weights 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_w0/test_data/transactions.parquet
+FAILED                                                                   [  4%]
+tests/integration/test_integration.py::TestRSAIPipeline::test_end_to_end_performance 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_end_to_end_performance0/test_data/transactions.parquet
+FAILED                                                                   [  4%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_initialization PASSED [  5%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_load_transactions_parquet 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_load_transactions_parquet0/transactions.parquet
+2025-07-11 22:12:25 [    INFO] Loaded 996 transactions
+PASSED                                                                   [  6%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_load_transactions_csv 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:25 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_load_transactions_csv0/transactions.csv
+2025-07-11 22:12:25 [    INFO] Loaded 996 transactions
+PASSED                                                                   [  7%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_load_transactions_date_filter 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_load_transactions_date_fi0/transactions.parquet
+2025-07-11 22:12:26 [    INFO] Loaded 238 transactions
+PASSED                                                                   [  8%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_load_transactions_price_filter 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_load_transactions_price_f0/transactions.parquet
+2025-07-11 22:12:26 [    INFO] Loaded 996 transactions
+PASSED                                                                   [  8%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_load_properties 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Loading properties from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_load_properties0/properties.parquet
+2025-07-11 22:12:26 [    INFO] Loaded 200 properties
+PASSED                                                                   [  9%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Identifying repeat sales
+FAILED                                                                   [ 10%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales_arms_length_filter 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Identifying repeat sales
+FAILED                                                                   [ 11%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales_holding_period_filter 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Identifying repeat sales
+FAILED                                                                   [ 12%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_merge_geographic_data ERROR [ 12%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_filter_outliers_iqr 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Filtering outliers using iqr method
+2025-07-11 22:12:26 [    INFO] Retained 100 pairs after outlier filtering
+PASSED                                                                   [ 13%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_filter_outliers_zscore 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Filtering outliers using zscore method
+2025-07-11 22:12:26 [    INFO] Retained 100 pairs after outlier filtering
+PASSED                                                                   [ 14%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_filter_outliers_percentile ERROR [ 15%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_standardize_columns PASSED [ 16%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_get_summary_statistics ERROR [ 16%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_no_repeat_sales 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Identifying repeat sales
+FAILED                                                                   [ 17%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_error_handling_invalid_file 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Loading transactions from nonexistent_file.parquet
+2025-07-11 22:12:26 [    INFO] Loading transactions from file.unsupported
+PASSED                                                                   [ 18%]
+tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_error_handling_no_transactions PASSED [ 19%]
+tests/unit/data/test_data_models.py::TestEnumerations::test_property_type_values PASSED [ 20%]
+tests/unit/data/test_data_models.py::TestEnumerations::test_transaction_type_values PASSED [ 20%]
+tests/unit/data/test_data_models.py::TestEnumerations::test_geography_level_values PASSED [ 21%]
+tests/unit/data/test_data_models.py::TestEnumerations::test_weighting_scheme_values PASSED [ 22%]
+tests/unit/data/test_data_models.py::TestPropertyCharacteristics::test_valid_characteristics PASSED [ 23%]
+tests/unit/data/test_data_models.py::TestPropertyCharacteristics::test_optional_fields PASSED [ 24%]
+tests/unit/data/test_data_models.py::TestPropertyCharacteristics::test_validation_boundaries PASSED [ 24%]
+tests/unit/data/test_data_models.py::TestGeographicLocation::test_valid_location PASSED [ 25%]
+tests/unit/data/test_data_models.py::TestGeographicLocation::test_zip_code_validation PASSED [ 26%]
+tests/unit/data/test_data_models.py::TestGeographicLocation::test_coordinate_validation PASSED [ 27%]
+tests/unit/data/test_data_models.py::TestTransaction::test_valid_transaction PASSED [ 28%]
+tests/unit/data/test_data_models.py::TestTransaction::test_price_validation PASSED [ 28%]
+tests/unit/data/test_data_models.py::TestTransaction::test_date_validation PASSED [ 29%]
+tests/unit/data/test_data_models.py::TestRepeatSalePair::test_valid_pair PASSED [ 30%]
+tests/unit/data/test_data_models.py::TestRepeatSalePair::test_date_validation PASSED [ 31%]
+tests/unit/data/test_data_models.py::TestRepeatSalePair::test_price_ratio_validation PASSED [ 32%]
+tests/unit/data/test_data_models.py::TestIndexValue::test_valid_index_value PASSED [ 32%]
+tests/unit/data/test_data_models.py::TestIndexValue::test_validation PASSED [ 33%]
+tests/unit/data/test_data_models.py::TestSuperTractDefinition::test_valid_supertract PASSED [ 34%]
+tests/unit/data/test_data_models.py::TestSuperTractDefinition::test_unique_tract_validation PASSED [ 35%]
+tests/unit/data/test_data_models.py::TestSuperTractDefinition::test_empty_tract_list PASSED [ 36%]
+tests/unit/data/test_data_models.py::TestQualityMetrics::test_valid_metrics PASSED [ 36%]
+tests/unit/data/test_data_models.py::TestQualityMetrics::test_count_validation PASSED [ 37%]
+tests/unit/data/test_data_models.py::TestQualityMetrics::test_score_bounds PASSED [ 38%]
+tests/unit/data/test_data_models.py::TestRSAIConfig::test_valid_config PASSED [ 39%]
+tests/unit/data/test_data_models.py::TestRSAIConfig::test_default_values PASSED [ 40%]
+tests/unit/data/test_data_models.py::TestRSAIConfig::test_validation PASSED [ 40%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_initialization PASSED [ 41%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_prepare_tract_data 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Preparing tract data for supertract generation
+2025-07-11 22:12:26 [    INFO] Prepared data for 633 tracts
+PASSED                                                                   [ 42%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_prepare_tract_data_no_properties 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Preparing tract data for supertract generation
+2025-07-11 22:12:26 [    INFO] Prepared data for 633 tracts
+PASSED                                                                   [ 43%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_hierarchical_clustering 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using hierarchical method
+FAILED                                                                   [ 44%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_dbscan_clustering 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using dbscan method
+PASSED                                                                   [ 44%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_greedy_aggregation 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using greedy method
+PASSED                                                                   [ 45%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_fallback_grouping 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using hierarchical method
+2025-07-11 22:12:26 [ WARNING] No tracts with geographic coordinates
+2025-07-11 22:12:26 [ WARNING] Using fallback grouping without geographic data
+PASSED                                                                   [ 46%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_create_supertract_from_tracts PASSED [ 47%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_create_supertract_empty_list PASSED [ 48%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_find_nearby_unassigned_tracts PASSED [ 48%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_export_mapping PASSED [ 49%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_adjust_cluster_size FAILED [ 50%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_invalid_method 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using invalid_method method
+PASSED                                                                   [ 51%]
+tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_small_county_handling 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:26 [    INFO] Generating supertracts using hierarchical method
+PASSED                                                                   [ 52%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_initialization PASSED [ 52%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_time_periods_monthly ERROR [ 53%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_time_periods_quarterly ERROR [ 54%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_design_matrix ERROR [ 55%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_design_matrix_with_weights ERROR [ 56%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_calculate_index_values ERROR [ 56%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_basic ERROR [ 57%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_insufficient_data ERROR [ 58%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_multiple_geographies ERROR [ 59%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_calculate_returns_log PASSED [ 60%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_calculate_returns_simple PASSED [ 60%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_calculate_volatility PASSED [ 61%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_weighted_regression ERROR [ 62%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_robust_standard_errors ERROR [ 63%]
+tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_period_mapping_consistency ERROR [ 64%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_initialization PASSED [ 64%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_equal_weights ERROR [ 65%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_value_weights ERROR [ 66%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_value_weights_capping 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Calculating value weights
+PASSED                                                                   [ 67%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_case_shiller_weights ERROR [ 68%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_case_shiller_no_corrections ERROR [ 68%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_bmn_weights ERROR [ 69%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_bmn_weights_with_age 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Calculating bmn weights
+PASSED                                                                   [ 70%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights ERROR [ 71%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights_array_return ERROR [ 72%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights_no_function ERROR [ 72%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_geographic_weights ERROR [ 73%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_geographic_weights_missing_coords ERROR [ 74%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_temporal_weights ERROR [ 75%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_quality_adjusted_weights ERROR [ 76%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_quality_adjusted_weights_external_scores ERROR [ 76%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_combine_weights ERROR [ 77%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_diagnose_weights ERROR [ 78%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_diagnose_weights_warnings FAILED [ 79%]
+tests/unit/index/test_weights.py::TestWeightCalculator::test_unknown_weighting_scheme ERROR [ 80%]
+tests/unit/output/test_export.py::TestOutputExporter::test_initialization PASSED [ 80%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_index_values_parquet 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Exported 48 index values to /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_export_index_values_parqu0/rsai_output/indices/test_index_20250711_221227.parquet
+PASSED                                                                   [ 81%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_index_values_csv 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Exported 48 index values to /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_export_index_values_csv0/rsai_output/indices/test_index_20250711_221227.csv
+PASSED                                                                   [ 82%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_index_values_json FAILED [ 83%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_index_values_invalid_format PASSED [ 84%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_regression_results 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Exported regression results to /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_export_regression_results0/rsai_output/reports/regression_results_20250711_221227.json
+PASSED                                                                   [ 84%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_regression_results_no_diagnostics 
+-------------------------------- live log call ---------------------------------
+2025-07-11 22:12:27 [    INFO] Exported regression results to /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_export_regression_results1/rsai_output/reports/regression_results_20250711_221227.json
+PASSED                                                                   [ 85%]
+tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_html FAILED [ 86%]
+tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_with_validation FAILED [ 87%]
+tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_markdown FAILED [ 88%]
+tests/unit/output/test_export.py::TestOutputExporter::test_create_index_plots_interactive FAILED [ 88%]
+tests/unit/output/test_export.py::TestOutputExporter::test_create_index_plots_static FAILED [ 89%]
+tests/unit/output/test_export.py::TestOutputExporter::test_export_for_tableau ERROR [ 90%]
+tests/unit/output/test_export.py::TestOutputExporter::test_create_methodology_document FAILED [ 91%]
+tests/unit/output/test_export.py::TestOutputExporter::test_calculate_summary_statistics PASSED [ 92%]
+tests/unit/output/test_export.py::TestOutputExporter::test_calculate_growth_rates PASSED [ 92%]
+tests/unit/output/test_export.py::TestOutputExporter::test_create_geographic_comparison PASSED [ 93%]
+tests/unit/output/test_export.py::TestOutputExporter::test_empty_data_handling FAILED [ 94%]
+tests/unit/test_example.py::TestExample::test_polars_dataframe_creation PASSED [ 95%]
+tests/unit/test_example.py::TestExample::test_polars_operations PASSED   [ 96%]
+tests/unit/test_example.py::TestExample::test_sum_calculation[input_val0-6] PASSED [ 96%]
+tests/unit/test_example.py::TestExample::test_sum_calculation[input_val1-60] PASSED [ 97%]
+tests/unit/test_example.py::TestExample::test_sum_calculation[input_val2-5] PASSED [ 98%]
+tests/unit/test_example.py::TestExample::test_date_handling PASSED       [ 99%]
+tests/unit/test_example.py::test_with_fixture PASSED                     [100%]
+
+==================================== ERRORS ====================================
+________ ERROR at setup of TestDataIngestion.test_merge_geographic_data ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_____ ERROR at setup of TestDataIngestion.test_filter_outliers_percentile ______
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_______ ERROR at setup of TestDataIngestion.test_get_summary_statistics ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_____ ERROR at setup of TestBMNRegression.test_create_time_periods_monthly _____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+____ ERROR at setup of TestBMNRegression.test_create_time_periods_quarterly ____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+________ ERROR at setup of TestBMNRegression.test_create_design_matrix _________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+__ ERROR at setup of TestBMNRegression.test_create_design_matrix_with_weights __
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_______ ERROR at setup of TestBMNRegression.test_calculate_index_values ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+______________ ERROR at setup of TestBMNRegression.test_fit_basic ______________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+________ ERROR at setup of TestBMNRegression.test_fit_insufficient_data ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+______ ERROR at setup of TestBMNRegression.test_fit_multiple_geographies _______
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_________ ERROR at setup of TestBMNRegression.test_weighted_regression _________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_______ ERROR at setup of TestBMNRegression.test_robust_standard_errors ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_____ ERROR at setup of TestBMNRegression.test_period_mapping_consistency ______
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+__________ ERROR at setup of TestWeightCalculator.test_equal_weights ___________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+__________ ERROR at setup of TestWeightCalculator.test_value_weights ___________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_______ ERROR at setup of TestWeightCalculator.test_case_shiller_weights _______
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+___ ERROR at setup of TestWeightCalculator.test_case_shiller_no_corrections ____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+___________ ERROR at setup of TestWeightCalculator.test_bmn_weights ____________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+__________ ERROR at setup of TestWeightCalculator.test_custom_weights __________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+___ ERROR at setup of TestWeightCalculator.test_custom_weights_array_return ____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+____ ERROR at setup of TestWeightCalculator.test_custom_weights_no_function ____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+________ ERROR at setup of TestWeightCalculator.test_geographic_weights ________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_ ERROR at setup of TestWeightCalculator.test_geographic_weights_missing_coords _
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_________ ERROR at setup of TestWeightCalculator.test_temporal_weights _________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_____ ERROR at setup of TestWeightCalculator.test_quality_adjusted_weights _____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_ ERROR at setup of TestWeightCalculator.test_quality_adjusted_weights_external_scores _
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_________ ERROR at setup of TestWeightCalculator.test_combine_weights __________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_________ ERROR at setup of TestWeightCalculator.test_diagnose_weights _________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_____ ERROR at setup of TestWeightCalculator.test_unknown_weighting_scheme _____
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+_________ ERROR at setup of TestOutputExporter.test_export_for_tableau _________
+tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero
+=================================== FAILURES ===================================
+_____________________ TestRSAIPipeline.test_full_pipeline ______________________
+tests/integration/test_integration.py:135: in test_full_pipeline
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,343 - rsai.src.data.ingestion - INFO - Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_full_pipeline0/test_data/transactions.parquet
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:55 Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_full_pipeline0/test_data/transactions.parquet
+____________ TestRSAIPipeline.test_pipeline_with_multiple_counties _____________
+tests/integration/test_integration.py:301: in test_pipeline_with_multiple_counties
+    repeat_sales_df = ingestion.identify_repeat_sales()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,585 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+________________ TestRSAIPipeline.test_pipeline_error_handling _________________
+tests/integration/test_integration.py:337: in test_pipeline_error_handling
+    repeat_sales_df = ingestion.identify_repeat_sales()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,599 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+__________ TestRSAIPipeline.test_pipeline_with_different_frequencies ___________
+tests/integration/test_integration.py:355: in test_pipeline_with_different_frequencies
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,629 - rsai.src.data.ingestion - INFO - Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_f0/test_data/transactions.parquet
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:55 Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_f0/test_data/transactions.parquet
+____________ TestRSAIPipeline.test_pipeline_with_different_weights _____________
+tests/integration/test_integration.py:384: in test_pipeline_with_different_weights
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,751 - rsai.src.data.ingestion - INFO - Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_w0/test_data/transactions.parquet
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:55 Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_pipeline_with_different_w0/test_data/transactions.parquet
+_________________ TestRSAIPipeline.test_end_to_end_performance _________________
+tests/integration/test_integration.py:418: in test_end_to_end_performance
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:25,870 - rsai.src.data.ingestion - INFO - Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_end_to_end_performance0/test_data/transactions.parquet
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:55 Loading transactions from /private/var/folders/20/sr015hgj5gd8md09lzspg6kc0000gn/T/pytest-of-duc/pytest-2/test_end_to_end_performance0/test_data/transactions.parquet
+_________________ TestDataIngestion.test_identify_repeat_sales _________________
+tests/unit/data/test_data_ingestion.py:113: in test_identify_repeat_sales
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:26,021 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+_______ TestDataIngestion.test_identify_repeat_sales_arms_length_filter ________
+tests/unit/data/test_data_ingestion.py:145: in test_identify_repeat_sales_arms_length_filter
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:26,041 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+______ TestDataIngestion.test_identify_repeat_sales_holding_period_filter ______
+tests/unit/data/test_data_ingestion.py:179: in test_identify_repeat_sales_holding_period_filter
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:26,055 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+____________________ TestDataIngestion.test_no_repeat_sales ____________________
+tests/unit/data/test_data_ingestion.py:330: in test_no_repeat_sales
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:26,157 - rsai.src.data.ingestion - INFO - Identifying repeat sales
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.data.ingestion:ingestion.py:129 Identifying repeat sales
+_____________ TestSuperTractGenerator.test_hierarchical_clustering _____________
+tests/unit/geography/test_supertract.py:108: in test_hierarchical_clustering
+    assert len(supertract.tract_ids) <= generator.max_tracts
+E   AssertionError: assert 6 <= 5
+E    +  where 6 = len(['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'])
+E    +    where ['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'] = SupertractDefinition(supertract_id='06037_ST_001', name='Supertract 1', county_fips='06037', tract_ids=['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'], num_properties=8, num_transactions=8, median_price=190633.53124252072, min_lat=33.8638, max_lat=33.8654, min_lon=-118.4362, max_lon=-118.4346).tract_ids
+E    +  and   5 = <rsai.src.geography.supertract.SupertractGenerator object at 0x15613d2e0>.max_tracts
+----------------------------- Captured stderr call -----------------------------
+2025-07-11 22:12:26,219 - rsai.src.geography.supertract - INFO - Generating supertracts using hierarchical method
+------------------------------ Captured log call -------------------------------
+INFO     rsai.src.geography.supertract:supertract.py:164 Generating supertracts using hierarchical method
+_______________ TestSuperTractGenerator.test_adjust_cluster_size _______________
+tests/unit/geography/test_supertract.py:347: in test_adjust_cluster_size
+    adjusted = generator._adjust_cluster_size(
+rsai/src/geography/supertract.py:559: in _adjust_cluster_size
+    cluster_indices = all_tracts.with_row_count().filter(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/typing_extensions.py:2956: in wrapper
+    return arg(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:6594: in with_row_count
+    return self.with_row_index(name, offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:6549: in with_row_index
+    return self._from_pydf(self._df.with_row_index(name, offset))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.DuplicateError: could not create a new DataFrame: column with name 'row_nr' has more than one occurrence
+_____________ TestWeightCalculator.test_diagnose_weights_warnings ______________
+tests/unit/index/test_weights.py:403: in test_diagnose_weights_warnings
+    assert any("outliers" in w for w in diagnostics["warnings"])
+E   assert False
+E    +  where False = any(<generator object TestWeightCalculator.test_diagnose_weights_warnings.<locals>.<genexpr> at 0x1571a4450>)
+_______________ TestOutputExporter.test_export_index_values_json _______________
+tests/unit/output/test_export.py:83: in test_export_index_values_json
+    output_path = exporter.export_index_values(
+rsai/src/output/export.py:107: in export_index_values
+    index_df.write_json(output_path, row_oriented=True)
+E   TypeError: DataFrame.write_json() got an unexpected keyword argument 'row_oriented'
+_____________ TestOutputExporter.test_generate_summary_report_html _____________
+tests/unit/output/test_export.py:156: in test_generate_summary_report_html
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+_______ TestOutputExporter.test_generate_summary_report_with_validation ________
+tests/unit/output/test_export.py:188: in test_generate_summary_report_with_validation
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+___________ TestOutputExporter.test_generate_summary_report_markdown ___________
+tests/unit/output/test_export.py:218: in test_generate_summary_report_markdown
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+____________ TestOutputExporter.test_create_index_plots_interactive ____________
+tests/unit/output/test_export.py:247: in test_create_index_plots_interactive
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+______________ TestOutputExporter.test_create_index_plots_static _______________
+tests/unit/output/test_export.py:279: in test_create_index_plots_static
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+_____________ TestOutputExporter.test_create_methodology_document ______________
+tests/unit/output/test_export.py:346: in test_create_methodology_document
+    doc_path = exporter.create_methodology_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/output/export.py:315: in create_methodology_document
+    - **Weighting Scheme**: {self.config.weighting_scheme.value}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'
+_________________ TestOutputExporter.test_empty_data_handling __________________
+tests/unit/output/test_export.py:440: in test_empty_data_handling
+    output_path = exporter.export_index_values([], format="parquet")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/output/export.py:95: in export_index_values
+    index_df = index_df.sort(["geography_level", "geography_id", "period"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:5712: in sort
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: geography_level
+- generated xml file: /Users/duc/projects/claude/hpi-fhfa/impl-polars/test_results.xml -
+================================ tests coverage ================================
+_______________ coverage: platform darwin, python 3.12.4-final-0 _______________
+
+Name                               Stmts   Miss Branch BrPart   Cover   Missing
+-------------------------------------------------------------------------------
+rsai/__init__.py                       5      0      0      0 100.00%
+rsai/src/__init__.py                   2      0      0      0 100.00%
+rsai/src/data/__init__.py              4      0      0      0 100.00%
+rsai/src/data/ingestion.py           130     43     42      7  63.95%   63, 107-110, 146->153, 158-202, 211-235, 248, 280-285, 328, 381, 392-421
+rsai/src/data/models.py              177      0     12      0 100.00%
+rsai/src/data/validation.py          199    184    100      0   5.02%   37-38, 50-152, 164-259, 271-368, 380-455, 464-511
+rsai/src/geography/__init__.py         3      0      0      0 100.00%
+rsai/src/geography/distance.py       175    143     62      0  15.19%   76-149, 224-285, 315-388, 412-448, 470-504
+rsai/src/geography/supertract.py     229     16    106     20  86.27%   91, 210->212, 251-256, 289, 324, 334->322, 341-349, 391->411, 404, 411->379, 418->379, 450->449, 455->458, 513->509, 551, 589->580, 594-599, 640->643, 647->620, 652->620
+rsai/src/index/__init__.py             4      0      0      0 100.00%
+rsai/src/index/aggregation.py        108     84     24      0  18.18%   43-45, 68-103, 123-136, 156-215, 235-272, 290-320, 338-354, 372-397, 419-460, 468-483, 491-504, 514-551, 561-586, 596-619
+rsai/src/index/bmn_regression.py     160    119     54      2  21.03%   82-147, 170-210, 226-250, 270-356, 381-441, 483-486, 521-524
+rsai/src/index/weights.py            118     65     34      5  38.16%   59, 77, 146-203, 241, 273-296, 322-354, 379-396, 416-439, 457-480, 519->521, 521->523, 524
+rsai/src/main.py                     199    167     64      1  12.55%   51-53, 57-61, 98-185, 193-217, 226-247, 256-295, 302-315, 322-356, 364-414, 425-471, 476-542, 546
+rsai/src/output/__init__.py            2      0      0      0 100.00%
+rsai/src/output/export.py            200    112     52      1  40.08%   178-188, 207-245, 263-297, 372-376, 386-495, 504-542, 562-565, 593-613, 617-633, 638-665
+-------------------------------------------------------------------------------
+TOTAL                               1715    933    550     36  40.62%
+Coverage HTML written to dir htmlcov
+Coverage XML written to file coverage.xml
+=========================== short test summary info ============================
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_full_pipeline - polars.exceptions.ColumnNotFoundError: recording_date
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_multiple_counties - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_error_handling - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_different_frequencies - polars.exceptions.ColumnNotFoundError: recording_date
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_pipeline_with_different_weights - polars.exceptions.ColumnNotFoundError: recording_date
+FAILED tests/integration/test_integration.py::TestRSAIPipeline::test_end_to_end_performance - polars.exceptions.ColumnNotFoundError: recording_date
+FAILED tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales_arms_length_filter - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_identify_repeat_sales_holding_period_filter - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_no_repeat_sales - AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?
+FAILED tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_hierarchical_clustering - AssertionError: assert 6 <= 5
+ +  where 6 = len(['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'])
+ +    where ['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'] = SupertractDefinition(supertract_id='06037_ST_001', name='Supertract 1', county_fips='06037', tract_ids=['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'], num_properties=8, num_transactions=8, median_price=190633.53124252072, min_lat=33.8638, max_lat=33.8654, min_lon=-118.4362, max_lon=-118.4346).tract_ids
+ +  and   5 = <rsai.src.geography.supertract.SupertractGenerator object at 0x15613d2e0>.max_tracts
+FAILED tests/unit/geography/test_supertract.py::TestSuperTractGenerator::test_adjust_cluster_size - polars.exceptions.DuplicateError: could not create a new DataFrame: column with name 'row_nr' has more than one occurrence
+FAILED tests/unit/index/test_weights.py::TestWeightCalculator::test_diagnose_weights_warnings - assert False
+ +  where False = any(<generator object TestWeightCalculator.test_diagnose_weights_warnings.<locals>.<genexpr> at 0x1571a4450>)
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_export_index_values_json - TypeError: DataFrame.write_json() got an unexpected keyword argument 'row_oriented'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_html - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_with_validation - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_generate_summary_report_markdown - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_create_index_plots_interactive - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_create_index_plots_static - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_create_methodology_document - AttributeError: 'str' object has no attribute 'value'
+FAILED tests/unit/output/test_export.py::TestOutputExporter::test_empty_data_handling - polars.exceptions.ColumnNotFoundError: geography_level
+ERROR tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_merge_geographic_data - ZeroDivisionError: float division by zero
+ERROR tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_filter_outliers_percentile - ZeroDivisionError: float division by zero
+ERROR tests/unit/data/test_data_ingestion.py::TestDataIngestion::test_get_summary_statistics - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_time_periods_monthly - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_time_periods_quarterly - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_design_matrix - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_create_design_matrix_with_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_calculate_index_values - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_basic - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_insufficient_data - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_fit_multiple_geographies - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_weighted_regression - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_robust_standard_errors - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_bmn_regression.py::TestBMNRegression::test_period_mapping_consistency - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_equal_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_value_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_case_shiller_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_case_shiller_no_corrections - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_bmn_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights_array_return - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_custom_weights_no_function - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_geographic_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_geographic_weights_missing_coords - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_temporal_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_quality_adjusted_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_quality_adjusted_weights_external_scores - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_combine_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_diagnose_weights - ZeroDivisionError: float division by zero
+ERROR tests/unit/index/test_weights.py::TestWeightCalculator::test_unknown_weighting_scheme - ZeroDivisionError: float division by zero
+ERROR tests/unit/output/test_export.py::TestOutputExporter::test_export_for_tableau - ZeroDivisionError: float division by zero
+=================== 21 failed, 73 passed, 31 errors in 3.11s ===================

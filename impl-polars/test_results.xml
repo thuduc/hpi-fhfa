@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="31" failures="21" skipped="0" tests="125" time="3.113" timestamp="2025-07-11T22:12:25.256857-04:00" hostname="Ducs-MacBook-Pro.local"><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_full_pipeline" time="0.032"><failure message="polars.exceptions.ColumnNotFoundError: recording_date">tests/integration/test_integration.py:135: in test_full_pipeline
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date</failure></testcase><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_pipeline_with_multiple_counties" time="0.008"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/integration/test_integration.py:301: in test_pipeline_with_multiple_counties
+    repeat_sales_df = ingestion.identify_repeat_sales()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_pipeline_error_handling" time="0.002"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/integration/test_integration.py:337: in test_pipeline_error_handling
+    repeat_sales_df = ingestion.identify_repeat_sales()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_pipeline_with_different_frequencies" time="0.019"><failure message="polars.exceptions.ColumnNotFoundError: recording_date">tests/integration/test_integration.py:355: in test_pipeline_with_different_frequencies
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date</failure></testcase><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_pipeline_with_different_weights" time="0.022"><failure message="polars.exceptions.ColumnNotFoundError: recording_date">tests/integration/test_integration.py:384: in test_pipeline_with_different_weights
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date</failure></testcase><testcase classname="tests.integration.test_integration.TestRSAIPipeline" name="test_end_to_end_performance" time="0.019"><failure message="polars.exceptions.ColumnNotFoundError: recording_date">tests/integration/test_integration.py:418: in test_end_to_end_performance
+    transactions_df = ingestion.load_transactions(test_data_dir / "transactions.parquet")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:71: in load_transactions
+    df = df.with_columns([
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:10018: in with_columns
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: recording_date</failure></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_initialization" time="0.001" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_load_transactions_parquet" time="0.010" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_load_transactions_csv" time="0.011" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_load_transactions_date_filter" time="0.009" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_load_transactions_price_filter" time="0.009" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_load_properties" time="0.003" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_identify_repeat_sales" time="0.008"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/unit/data/test_data_ingestion.py:113: in test_identify_repeat_sales
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_identify_repeat_sales_arms_length_filter" time="0.008"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/unit/data/test_data_ingestion.py:145: in test_identify_repeat_sales_arms_length_filter
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_identify_repeat_sales_holding_period_filter" time="0.002"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/unit/data/test_data_ingestion.py:179: in test_identify_repeat_sales_holding_period_filter
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_merge_geographic_data" time="0.038"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_filter_outliers_iqr" time="0.002" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_filter_outliers_zscore" time="0.001" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_filter_outliers_percentile" time="0.013"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_standardize_columns" time="0.001" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_get_summary_statistics" time="0.014"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_no_repeat_sales" time="0.002"><failure message="AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?">tests/unit/data/test_data_ingestion.py:330: in test_no_repeat_sales
+    repeat_df = ingestion.identify_repeat_sales()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/data/ingestion.py:154: in identify_repeat_sales
+    (pl.col("sale_date") - pl.col("prev_sale_date")).dt.days().alias("holding_period_days")
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'ExprDateTimeNameSpace' object has no attribute 'days'. Did you mean: 'day'?</failure></testcase><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_error_handling_invalid_file" time="0.001" /><testcase classname="tests.unit.data.test_data_ingestion.TestDataIngestion" name="test_error_handling_no_transactions" time="0.001" /><testcase classname="tests.unit.data.test_data_models.TestEnumerations" name="test_property_type_values" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestEnumerations" name="test_transaction_type_values" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestEnumerations" name="test_geography_level_values" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestEnumerations" name="test_weighting_scheme_values" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestPropertyCharacteristics" name="test_valid_characteristics" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestPropertyCharacteristics" name="test_optional_fields" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestPropertyCharacteristics" name="test_validation_boundaries" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestGeographicLocation" name="test_valid_location" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestGeographicLocation" name="test_zip_code_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestGeographicLocation" name="test_coordinate_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestTransaction" name="test_valid_transaction" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestTransaction" name="test_price_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestTransaction" name="test_date_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRepeatSalePair" name="test_valid_pair" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRepeatSalePair" name="test_date_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRepeatSalePair" name="test_price_ratio_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestIndexValue" name="test_valid_index_value" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestIndexValue" name="test_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestSuperTractDefinition" name="test_valid_supertract" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestSuperTractDefinition" name="test_unique_tract_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestSuperTractDefinition" name="test_empty_tract_list" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestQualityMetrics" name="test_valid_metrics" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestQualityMetrics" name="test_count_validation" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestQualityMetrics" name="test_score_bounds" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRSAIConfig" name="test_valid_config" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRSAIConfig" name="test_default_values" time="0.000" /><testcase classname="tests.unit.data.test_data_models.TestRSAIConfig" name="test_validation" time="0.000" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_initialization" time="0.000" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_prepare_tract_data" time="0.013" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_prepare_tract_data_no_properties" time="0.010" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_hierarchical_clustering" time="0.389"><failure message="AssertionError: assert 6 &lt;= 5&#10; +  where 6 = len(['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'])&#10; +    where ['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'] = SupertractDefinition(supertract_id='06037_ST_001', name='Supertract 1', county_fips='06037', tract_ids=['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'], num_properties=8, num_transactions=8, median_price=190633.53124252072, min_lat=33.8638, max_lat=33.8654, min_lon=-118.4362, max_lon=-118.4346).tract_ids&#10; +  and   5 = &lt;rsai.src.geography.supertract.SupertractGenerator object at 0x15613d2e0&gt;.max_tracts">tests/unit/geography/test_supertract.py:108: in test_hierarchical_clustering
+    assert len(supertract.tract_ids) &lt;= generator.max_tracts
+E   AssertionError: assert 6 &lt;= 5
+E    +  where 6 = len(['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'])
+E    +    where ['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'] = SupertractDefinition(supertract_id='06037_ST_001', name='Supertract 1', county_fips='06037', tract_ids=['060371819', '060371820', '060371823', '060371824', '060371826', '060371827'], num_properties=8, num_transactions=8, median_price=190633.53124252072, min_lat=33.8638, max_lat=33.8654, min_lon=-118.4362, max_lon=-118.4346).tract_ids
+E    +  and   5 = &lt;rsai.src.geography.supertract.SupertractGenerator object at 0x15613d2e0&gt;.max_tracts</failure></testcase><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_dbscan_clustering" time="0.015" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_greedy_aggregation" time="0.194" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_fallback_grouping" time="0.002" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_create_supertract_from_tracts" time="0.000" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_create_supertract_empty_list" time="0.000" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_find_nearby_unassigned_tracts" time="0.000" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_export_mapping" time="0.001" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_adjust_cluster_size" time="0.001"><failure message="polars.exceptions.DuplicateError: could not create a new DataFrame: column with name 'row_nr' has more than one occurrence">tests/unit/geography/test_supertract.py:347: in test_adjust_cluster_size
+    adjusted = generator._adjust_cluster_size(
+rsai/src/geography/supertract.py:559: in _adjust_cluster_size
+    cluster_indices = all_tracts.with_row_count().filter(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/typing_extensions.py:2956: in wrapper
+    return arg(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:6594: in with_row_count
+    return self.with_row_index(name, offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:6549: in with_row_index
+    return self._from_pydf(self._df.with_row_index(name, offset))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.DuplicateError: could not create a new DataFrame: column with name 'row_nr' has more than one occurrence</failure></testcase><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_invalid_method" time="0.001" /><testcase classname="tests.unit.geography.test_supertract.TestSuperTractGenerator" name="test_small_county_handling" time="0.009" /><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_initialization" time="0.000" /><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_create_time_periods_monthly" time="0.021"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_create_time_periods_quarterly" time="0.013"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_create_design_matrix" time="0.029"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_create_design_matrix_with_weights" time="0.032"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_calculate_index_values" time="0.027"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_fit_basic" time="0.009"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_fit_insufficient_data" time="0.017"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_fit_multiple_geographies" time="0.015"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_calculate_returns_log" time="0.001" /><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_calculate_returns_simple" time="0.001" /><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_calculate_volatility" time="0.001" /><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_weighted_regression" time="0.014"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_robust_standard_errors" time="0.032"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_bmn_regression.TestBMNRegression" name="test_period_mapping_consistency" time="0.012"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_initialization" time="0.000" /><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_equal_weights" time="0.032"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_value_weights" time="0.030"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_value_weights_capping" time="0.001" /><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_case_shiller_weights" time="0.036"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_case_shiller_no_corrections" time="0.026"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_bmn_weights" time="0.028"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_bmn_weights_with_age" time="0.001" /><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_custom_weights" time="0.034"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_custom_weights_array_return" time="0.018"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_custom_weights_no_function" time="0.019"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_geographic_weights" time="0.019"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_geographic_weights_missing_coords" time="0.016"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_temporal_weights" time="0.012"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_quality_adjusted_weights" time="0.012"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_quality_adjusted_weights_external_scores" time="0.021"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_combine_weights" time="0.017"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_diagnose_weights" time="0.008"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_diagnose_weights_warnings" time="0.001"><failure message="assert False&#10; +  where False = any(&lt;generator object TestWeightCalculator.test_diagnose_weights_warnings.&lt;locals&gt;.&lt;genexpr&gt; at 0x1571a4450&gt;)">tests/unit/index/test_weights.py:403: in test_diagnose_weights_warnings
+    assert any("outliers" in w for w in diagnostics["warnings"])
+E   assert False
+E    +  where False = any(&lt;generator object TestWeightCalculator.test_diagnose_weights_warnings.&lt;locals&gt;.&lt;genexpr&gt; at 0x1571a4450&gt;)</failure></testcase><testcase classname="tests.unit.index.test_weights.TestWeightCalculator" name="test_unknown_weighting_scheme" time="0.020"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_initialization" time="0.001" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_index_values_parquet" time="0.003" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_index_values_csv" time="0.003" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_index_values_json" time="0.002"><failure message="TypeError: DataFrame.write_json() got an unexpected keyword argument 'row_oriented'">tests/unit/output/test_export.py:83: in test_export_index_values_json
+    output_path = exporter.export_index_values(
+rsai/src/output/export.py:107: in export_index_values
+    index_df.write_json(output_path, row_oriented=True)
+E   TypeError: DataFrame.write_json() got an unexpected keyword argument 'row_oriented'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_index_values_invalid_format" time="0.002" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_regression_results" time="0.003" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_regression_results_no_diagnostics" time="0.002" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_generate_summary_report_html" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:156: in test_generate_summary_report_html
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_generate_summary_report_with_validation" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:188: in test_generate_summary_report_with_validation
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_generate_summary_report_markdown" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:218: in test_generate_summary_report_markdown
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_create_index_plots_interactive" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:247: in test_create_index_plots_interactive
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_create_index_plots_static" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:279: in test_create_index_plots_static
+    "geography_level": iv.geography_level.value,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_export_for_tableau" time="0.031"><error message="failed on setup with &quot;ZeroDivisionError: float division by zero&quot;">tests/conftest.py:149: in sample_repeat_sales_df
+    "annualized_return": (price_ratio ** (365.0 / holding_days)) - 1,
+                                          ^^^^^^^^^^^^^^^^^^^^
+E   ZeroDivisionError: float division by zero</error></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_create_methodology_document" time="0.001"><failure message="AttributeError: 'str' object has no attribute 'value'">tests/unit/output/test_export.py:346: in test_create_methodology_document
+    doc_path = exporter.create_methodology_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/output/export.py:315: in create_methodology_document
+    - **Weighting Scheme**: {self.config.weighting_scheme.value}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'str' object has no attribute 'value'</failure></testcase><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_calculate_summary_statistics" time="0.002" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_calculate_growth_rates" time="0.002" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_create_geographic_comparison" time="0.004" /><testcase classname="tests.unit.output.test_export.TestOutputExporter" name="test_empty_data_handling" time="0.001"><failure message="polars.exceptions.ColumnNotFoundError: geography_level">tests/unit/output/test_export.py:440: in test_empty_data_handling
+    output_path = exporter.export_index_values([], format="parquet")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+rsai/src/output/export.py:95: in export_index_values
+    index_df = index_df.sort(["geography_level", "geography_id", "period"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/dataframe/frame.py:5712: in sort
+    .collect(optimizations=QueryOptFlags._eager())
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/_utils/deprecation.py:97: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/opt_flags.py:330: in wrapper
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+venv/lib/python3.12/site-packages/polars/lazyframe/frame.py:2332: in collect
+    return wrap_df(ldf.collect(engine, callback))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   polars.exceptions.ColumnNotFoundError: geography_level</failure></testcase><testcase classname="tests.unit.test_example.TestExample" name="test_polars_dataframe_creation" time="0.000" /><testcase classname="tests.unit.test_example.TestExample" name="test_polars_operations" time="0.000" /><testcase classname="tests.unit.test_example.TestExample" name="test_sum_calculation[input_val0-6]" time="0.000" /><testcase classname="tests.unit.test_example.TestExample" name="test_sum_calculation[input_val1-60]" time="0.000" /><testcase classname="tests.unit.test_example.TestExample" name="test_sum_calculation[input_val2-5]" time="0.000" /><testcase classname="tests.unit.test_example.TestExample" name="test_date_handling" time="0.000" /><testcase classname="tests.unit.test_example" name="test_with_fixture" time="0.001" /></testsuite></testsuites>
