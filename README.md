@@ -21,26 +21,28 @@ Refer to the README.md under the 3 implementation directories:
 * impl-polars/README.md
 * impl-spark/README.md
 
-## All prompts issued to Claude Code
-For referenace, the complete list of prompts issued to Clause Code is listed below:
+## All prompts issued to Google Gemini & Claude Code
+The following prompt was issue to Google Gemini 2.5 Pro LLM to generate the Product Requirements Document (PRD), after the 'hpi_fhfa_whitepaper.pdf' whitepaper was uploaded to the Gemini app:
 
-> Create a hpi_fhfa_prd.md file to represent a Product Requirements Document (PRD) using the whitepaper located here: '/Users/duc/projects/claude/hpi-fhfa/hpi_fhfa_whitepaper.pdf'. This is an econometric whitepaper. Use it to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD so I can use this PRD later to generate code (Pandas/Numpy, Polars, or PySpark)                      
+> Create a hpi_fhfa_prd.md file to represent the Product Requirements Document (PRD) using the uploaded whitepaper. Use it to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD so I can use this PRD later to generate code (Pandas/Numpy, Polars, or PySpark)
 
-> use the '/Users/duc/projects/claude/hpi-fhfa/hpi_fhfa_prd.md' file to generate a plan to implement this product requirements document in code                           │
+The PRD was then downloaded for use in Claude Code to generate the full implementation of the model. For referenace, the complete list of prompts issued to Clause Code is listed below:
+
+> use the @hpi_fhfa_prd.md file to generate a plan to implement this product requirements document in code
 
 > save this plan as hpi_fhfa_impl_plan.md file in the current directory so I can user it later
 
-> implement the code using this plan and store all the code for this project under the impl-pandas directory                                                          │
+> implement the code using this plan and store all the code for this project under the impl-pandas directory
 
 > implement the last 2 steps to create unit and integration tests. Generate sample data as needed
 
 > Run all unit and integration tests to make sure they all pass. If not, make changes to the code iteratively until all the tests passed. Generate a report summarizing the restuls of all the unit tests and integration tests 
 
-> now use the same '/Users/duc/projects/claude/hpi-fhfa/hpi_fhfa_impl_plan.md' but this time implement the code using pandas and polars and put everything under the impl-polars directory, including the python virtual environment. Implement all the steps and make sure all the tests pass. Generate a report summarizing the results of all the unit tests and integration tests.
+> now use the same @hpi_fhfa_impl_plan.md but this time implement the code using pandas and polars and put everything under the impl-polars directory, including the python virtual environment. Implement all the steps and make sure all the tests pass. Generate a report summarizing the results of all the unit tests and integration tests.
 
-> all tests need to pass. Iterate until a fix is found for each test                                                                         
+> all tests need to pass. Iterate until a fix is found for each test
 
-> The next implementation is pyspark. Use the '/Users/duc/projects/claude/hpi-fhfa/hpi_fhfa_impl_plan.md' but this time implement the code using pyspark and MLlib. Put everything under the impl-pyspark directory. Implement all the steps and make sure all the tests pass. Generate a report summarizing the results of all the unit tests and integration tests.
+> The next implementation is pyspark. Use the @hpi_fhfa_impl_plan.md but this time implement the code using pyspark and MLlib. Put everything under the impl-pyspark directory. Implement all the steps and make sure all the tests pass. Generate a report summarizing the results of all the unit tests and integration tests.
 
 > find a way to run locally the 54 tests that require a Spark session
 
@@ -48,7 +50,7 @@ For referenace, the complete list of prompts issued to Clause Code is listed bel
 
 > setup a local test infrastructure so that all tests requiring spark session will run and pass
 
-> fix the remaining test failures and do this iteratively untill all tests pass                                                                         
+> fix the remaining test failures and do this iteratively untill all tests pass
 
 > perform test infrastructure refinements so that all test will pass. Make sure all tests are passing before stopping
 
