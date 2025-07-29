@@ -26,7 +26,7 @@ The following prompt was issue to Google Gemini 2.5 Pro LLM to generate the Prod
 
 > Create a hpi_fhfa_prd.md file to represent the Product Requirements Document (PRD) using the uploaded whitepaper. Use it to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD so I can use this PRD later to generate code (Pandas/Numpy, Polars, or PySpark)
 
-The PRD was then downloaded for use in Claude Code to generate the full implementation of the model. For referenace, the complete list of prompts issued to Clause Code is listed below:
+The PRD was then downloaded for use in Claude Code to generate the full implementation of the model. For reference, the complete list of prompts issued to Clause Code is listed below:
 
 > use the @hpi_fhfa_prd.md file to generate a plan to implement this product requirements document in code
 
