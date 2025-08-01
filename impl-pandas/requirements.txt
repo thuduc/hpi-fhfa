@@ -1,0 +1,61 @@
+# Core dependencies
+pandas==2.3.1
+numpy==2.3.2
+scipy==1.16.1
+pandera==0.25.0
+
+# Machine learning and statistics (to be added in future phases)
+# scikit-learn>=1.1.0,<2.0.0
+# statsmodels>=0.13.0,<1.0.0
+
+# Geographic processing (to be added in future phases)
+# geopandas>=0.12.0,<1.0.0
+# shapely>=2.0.0,<3.0.0
+# pyproj>=3.4.0,<4.0.0
+
+# Performance optimization (to be added in future phases)
+# numba>=0.56.0,<1.0.0
+# dask[complete]>=2022.10.0,<2024.0.0
+
+# Testing
+pytest==8.4.1
+pytest-cov==6.2.1
+# hypothesis>=6.60.0,<7.0.0  # Not yet used
+
+# Development tools (optional)
+# black>=22.10.0,<24.0.0
+# flake8>=5.0.0,<7.0.0
+# mypy>=0.990,<2.0.0
+# isort>=5.10.0,<6.0.0
+
+# Documentation (optional)
+# sphinx>=5.3.0,<7.0.0
+# sphinx-rtd-theme>=1.1.0,<2.0.0
+# nbsphinx>=0.8.0,<1.0.0
+
+# Jupyter support (optional)
+# jupyter>=1.0.0,<2.0.0
+# ipykernel>=6.17.0,<7.0.0
+
+# Logging and monitoring (optional)
+# python-json-logger>=2.0.0,<3.0.0
+
+# Dependencies automatically installed by the above packages
+# These are listed for transparency but don't need to be specified directly:
+# annotated-types==0.7.0        # via pydantic
+# coverage==7.10.1              # via pytest-cov
+# iniconfig==2.1.0              # via pytest
+# mypy-extensions==1.1.0        # via typing-inspect
+# packaging==25.0               # via pytest, pandera
+# pluggy==1.6.0                 # via pytest
+# pydantic==2.11.7              # via pandera
+# pydantic-core==2.33.2         # via pydantic
+# pygments==2.19.2              # via pytest
+# python-dateutil==2.9.0.post0  # via pandas
+# pytz==2025.2                  # via pandas
+# six==1.17.0                   # via python-dateutil
+# typeguard==4.4.4              # via pandera
+# typing-inspect==0.9.0         # via pandera
+# typing-inspection==0.4.1      # via pydantic
+# typing-extensions==4.14.1     # via pydantic, pandera
+# tzdata==2025.2                # via pandas

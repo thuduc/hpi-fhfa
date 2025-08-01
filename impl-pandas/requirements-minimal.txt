@@ -1,0 +1,12 @@
+# Minimal requirements for HPI-FHFA implementation (Phases 1-2)
+# These are the essential packages needed to run the core functionality
+
+# Core dependencies
+pandas==2.3.1
+numpy==2.3.2
+scipy==1.16.1
+pandera==0.25.0
+
+# Testing (optional but recommended)
+pytest==8.4.1
+pytest-cov==6.2.1

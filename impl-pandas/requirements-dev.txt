@@ -1,0 +1,22 @@
+# Development requirements for HPI-FHFA implementation
+# Install with: pip install -r requirements-dev.txt
+
+# Include base requirements
+-r requirements-minimal.txt
+
+# Additional testing tools
+hypothesis>=6.60.0,<7.0.0
+
+# Code quality tools
+black>=22.10.0,<24.0.0
+flake8>=5.0.0,<7.0.0
+mypy>=0.990,<2.0.0
+isort>=5.10.0,<6.0.0
+
+# Documentation
+sphinx>=5.3.0,<7.0.0
+sphinx-rtd-theme>=1.1.0,<2.0.0
+
+# Jupyter support for examples
+jupyter>=1.0.0,<2.0.0
+ipykernel>=6.17.0,<7.0.0
