@@ -2,11 +2,11 @@
 
 > Create a hpi_fhfa_prd.md file to represent the Product Requirements Document (PRD) using the whitepaper @hpi_fhfa_whitepaper.pdf. Use the whitepaper to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD. Think hard
 
-> Use the @hpi_fhfa_prd.md the generate an implementation plan using Python and Pandas as the technical stack, along with any other necessary machine learning libraries. The implementation should include comprehensive testing via unit tests and integration tests. Make sure test converage for the core model code is at least 80%. Save this implementation plan as IMPLEMENTATION_PLAN_PANDAS.md. Think hard.
+> Use the @hpi_fhfa_prd.md to generate an implementation plan using Python and Pandas as the technical stack, along with any other necessary machine learning libraries. The implementation should include comprehensive testing via unit tests and integration tests. Make sure test converage for the core model code is at least 80%. Save this implementation plan as IMPLEMENTATION_PLAN_PANDAS.md. Think hard.
 
 > Go ahead and implement the first 2 phases of the implementation plan. Put all code under impl-pandas directory
 
-> Setup a local virtual python environment and run all tests. Fix any test failures. Generate sample data for use by the tests if needed
+> Setup a local virtual python environment and run all tests. Fix any test failures. Generated synthetic data used for the tests must be robust enough to cover all scenarios.
 
   Remaining Issues:
 
