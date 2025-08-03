@@ -1,0 +1,187 @@
+Metadata-Version: 2.4
+Name: hpi-fhfa
+Version: 0.1.0
+Summary: FHFA House Price Index implementation using Polars
+Author-email: HPI-FHFA Team <team@hpi-fhfa.org>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: polars>=0.20.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.11.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: pyarrow>=14.0.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: pytest-cov>=4.1.0
+Requires-Dist: hypothesis>=6.90.0
+Requires-Dist: black>=23.0.0
+Requires-Dist: ruff>=0.1.0
+Requires-Dist: mypy>=1.5.0
+Requires-Dist: joblib>=1.3.0
+Requires-Dist: tqdm>=4.66.0
+Requires-Dist: structlog>=23.2.0
+Requires-Dist: click>=8.1.0
+Provides-Extra: distributed
+Requires-Dist: dask[complete]>=2023.10.0; extra == "distributed"
+Requires-Dist: ray>=2.8.0; extra == "distributed"
+Provides-Extra: viz
+Requires-Dist: matplotlib>=3.7.0; extra == "viz"
+Requires-Dist: seaborn>=0.13.0; extra == "viz"
+Requires-Dist: plotly>=5.18.0; extra == "viz"
+Provides-Extra: dev
+Requires-Dist: jupyter>=1.0.0; extra == "dev"
+Requires-Dist: ipykernel>=6.25.0; extra == "dev"
+
+# HPI-FHFA Implementation with Polars
+
+This is a Python implementation of the Federal Housing Finance Agency (FHFA) Repeat-Sales Aggregation Index (RSAI) method for constructing house price indices, based on Contat & Larson (2022).
+
+## Features
+
+- High-performance data processing using Polars
+- Bailey-Muth-Nourse (BMN) repeat-sales regression
+- Dynamic supertract aggregation algorithm
+- Multiple weighting schemes (sample, value, unit, UPB, college, non-white)
+- Comprehensive data validation and filtering
+- Extensive test coverage (target: 80%+ for core models)
+
+## Installation
+
+```bash
+# Clone the repository
+cd impl-polars
+
+# Install dependencies
+pip install -e ".[dev]"
+```
+
+## Quick Start
+
+```python
+from pathlib import Path
+from hpi_fhfa.config.settings import HPIConfig
+from hpi_fhfa.data.loader import DataLoader
+from hpi_fhfa.processing.repeat_sales import RepeatSalesIdentifier
+from hpi_fhfa.data.filters import TransactionFilter
+
+# Configure pipeline
+config = HPIConfig(
+    transaction_data_path=Path("data/transactions.parquet"),
+    geographic_data_path=Path("data/geographic.parquet"),
+    output_path=Path("output/"),
+    start_year=2015,
+    end_year=2020
+)
+
+# Load data
+loader = DataLoader(config)
+transactions = loader.load_transactions()
+geographic = loader.load_geographic_data()
+
+# Identify repeat sales
+identifier = RepeatSalesIdentifier()
+repeat_sales = identifier.identify_repeat_sales(transactions)
+
+# Apply filters
+filter = TransactionFilter()
+filtered_sales = filter.apply_filters(repeat_sales)
+```
+
+## Project Structure
+
+```
+impl-polars/
+├── src/hpi_fhfa/
+│   ├── config/        # Configuration and constants
+│   ├── data/          # Data loading, validation, filtering
+│   ├── models/        # BMN regression, supertract, weighting
+│   ├── processing/    # Repeat sales, half-pairs calculation
+│   ├── indices/       # Index construction (TBD)
+│   └── utils/         # Logging, exceptions
+├── tests/
+│   ├── unit/          # Unit tests
+│   ├── integration/   # Integration tests (TBD)
+│   └── fixtures/      # Test data generators
+├── notebooks/         # Jupyter notebooks (TBD)
+└── scripts/          # CLI scripts (TBD)
+```
+
+## Core Components
+
+### Phase 1: Foundation
+- ✅ Data schemas with Polars
+- ✅ Data loader with multiple format support
+- ✅ Data validators with strict/lenient modes
+- ✅ Transaction filters (CAGR, appreciation, same-period)
+- ✅ Testing framework setup
+
+### Phase 2: Core Algorithms
+- ✅ BMN regression with sparse matrices
+- ✅ Supertract dynamic aggregation
+- ✅ Weighting scheme implementations
+- ✅ Repeat-sales identification
+- ✅ Half-pairs calculation
+
+### Phase 3: Pipeline Integration (To Do)
+- ⏳ Main processing pipeline
+- ⏳ Tract-level index calculation
+- ⏳ City-level aggregation
+- ⏳ Checkpointing and resumability
+
+## Running Tests
+
+```bash
+# Run all tests
+make test
+
+# Run with coverage report
+make test-coverage
+
+# Run specific test file
+pytest tests/unit/test_bmn_regression.py
+```
+
+## Development
+
+```bash
+# Format code
+make format
+
+# Run linters
+make lint
+
+# Clean build artifacts
+make clean
+```
+
+## Key Algorithms
+
+### BMN Regression
+The Bailey-Muth-Nourse regression estimates price appreciation by regressing log price differences on time dummy variables:
+
+```
+p_itτ = D'_tτ * δ_tτ + ε_itτ
+```
+
+### Supertract Formation
+Dynamically aggregates census tracts to ensure minimum 40 half-pairs per period using nearest-neighbor merging based on centroid distance.
+
+### Weighting Schemes
+- **Sample weights**: Share of half-pairs
+- **Value weights**: Share of housing value (Laspeyres)
+- **Unit weights**: Share of housing units
+- **UPB weights**: Share of unpaid principal balance
+- **College weights**: Share of college-educated population
+- **Non-white weights**: Share of non-white population
+
+## Performance
+
+The implementation uses Polars for efficient columnar data processing:
+- Lazy evaluation for complex queries
+- Native support for window functions
+- Efficient group-by operations
+- Memory-mapped file reading
+
+## License
+
+This implementation is based on the methodology described in Contat & Larson (2022).

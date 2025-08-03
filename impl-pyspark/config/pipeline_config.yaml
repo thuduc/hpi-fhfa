@@ -1,0 +1,39 @@
+# Pipeline configuration for HPI-FHFA
+
+pipeline:
+  name: "HPI-FHFA-Pipeline"
+  version: "0.1.0"
+  
+data:
+  min_half_pairs: 40
+  start_year: 1989
+  end_year: 2021
+  base_year: 1989
+  
+filters:
+  max_cagr: 0.30
+  min_appreciation_ratio: 0.25
+  max_appreciation_ratio: 10.0
+  
+weights:
+  types:
+    - sample
+    - value
+    - unit
+    - upb
+    - college
+    - nonwhite
+  static_weights_year: 2010
+  
+output:
+  format: "parquet"
+  compression: "snappy"
+  partition_by:
+    - cbsa_code
+    - year
+  
+monitoring:
+  log_level: "INFO"
+  metrics_enabled: true
+  checkpoint_enabled: true
+  checkpoint_frequency: 100  # CBSAs

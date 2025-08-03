@@ -1,0 +1,162 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: hpi-fhfa-pyspark
+  ECS_SERVICE: hpi-fhfa-service
+  ECS_CLUSTER: data-processing-cluster
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.environment == 'staging' || (github.event_name == 'push' && contains(github.ref, 'refs/tags/'))
+    environment: staging
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+    
+    - name: Build, tag, and push image to Amazon ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+    
+    - name: Deploy to EMR Serverless
+      run: |
+        aws emr-serverless start-job-run \
+          --application-id ${{ secrets.EMR_APPLICATION_ID }} \
+          --execution-role-arn ${{ secrets.EMR_EXECUTION_ROLE }} \
+          --job-driver '{
+            "sparkSubmit": {
+              "entryPoint": "s3://${{ secrets.S3_BUCKET }}/scripts/run_pipeline.py",
+              "entryPointArguments": [
+                "--transaction-path", "s3://${{ secrets.S3_BUCKET }}/data/transactions/",
+                "--geographic-path", "s3://${{ secrets.S3_BUCKET }}/data/geographic/",
+                "--weight-path", "s3://${{ secrets.S3_BUCKET }}/data/weights/",
+                "--output-path", "s3://${{ secrets.S3_BUCKET }}/output/staging/",
+                "--env", "staging"
+              ],
+              "sparkSubmitParameters": "--conf spark.executor.instances=10 --conf spark.executor.memory=16g --conf spark.executor.cores=4"
+            }
+          }' \
+          --configuration-overrides '{
+            "monitoringConfiguration": {
+              "s3MonitoringConfiguration": {
+                "logUri": "s3://${{ secrets.S3_BUCKET }}/logs/staging/"
+              }
+            }
+          }'
+    
+    - name: Update Parameter Store
+      run: |
+        aws ssm put-parameter \
+          --name "/hpi-fhfa/staging/image-tag" \
+          --value "${{ github.sha }}" \
+          --type "String" \
+          --overwrite
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    if: github.event.inputs.environment == 'production'
+    environment: production
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+        aws-region: ${{ env.AWS_REGION }}
+    
+    - name: Get staging image tag
+      id: get-staging-tag
+      run: |
+        STAGING_TAG=$(aws ssm get-parameter --name "/hpi-fhfa/staging/image-tag" --query 'Parameter.Value' --output text)
+        echo "staging_tag=$STAGING_TAG" >> $GITHUB_OUTPUT
+    
+    - name: Promote staging image to production
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        STAGING_TAG: ${{ steps.get-staging-tag.outputs.staging_tag }}
+      run: |
+        docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$STAGING_TAG
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$STAGING_TAG $ECR_REGISTRY/$ECR_REPOSITORY:production
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:production
+    
+    - name: Deploy to Production EMR
+      run: |
+        aws emr-serverless start-job-run \
+          --application-id ${{ secrets.EMR_APPLICATION_ID_PROD }} \
+          --execution-role-arn ${{ secrets.EMR_EXECUTION_ROLE_PROD }} \
+          --job-driver '{
+            "sparkSubmit": {
+              "entryPoint": "s3://${{ secrets.S3_BUCKET_PROD }}/scripts/run_pipeline.py",
+              "entryPointArguments": [
+                "--transaction-path", "s3://${{ secrets.S3_BUCKET_PROD }}/data/transactions/",
+                "--geographic-path", "s3://${{ secrets.S3_BUCKET_PROD }}/data/geographic/",
+                "--weight-path", "s3://${{ secrets.S3_BUCKET_PROD }}/data/weights/",
+                "--output-path", "s3://${{ secrets.S3_BUCKET_PROD }}/output/production/",
+                "--env", "production"
+              ],
+              "sparkSubmitParameters": "--conf spark.executor.instances=20 --conf spark.executor.memory=32g --conf spark.executor.cores=8"
+            }
+          }' \
+          --configuration-overrides '{
+            "monitoringConfiguration": {
+              "s3MonitoringConfiguration": {
+                "logUri": "s3://${{ secrets.S3_BUCKET_PROD }}/logs/production/"
+              }
+            }
+          }'
+    
+    - name: Send deployment notification
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: 'HPI-FHFA Pipeline deployed to production'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+      if: always()
+
+  rollback:
+    runs-on: ubuntu-latest
+    if: failure()
+    needs: [deploy-staging, deploy-production]
+    
+    steps:
+    - name: Rollback to previous version
+      run: |
+        echo "Rollback logic would go here"
+        # Implement rollback strategy based on your infrastructure

@@ -1,0 +1,15 @@
+[run]
+source = hpi_fhfa
+omit = 
+    */tests/*
+    */test_*.py
+    setup.py
+    */venv/*
+
+[report]
+precision = 2
+show_missing = True
+skip_covered = False
+
+[html]
+directory = htmlcov
