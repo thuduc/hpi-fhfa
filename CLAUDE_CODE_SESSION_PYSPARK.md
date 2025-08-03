@@ -1,6 +1,6 @@
 ## All prompts issued to Claude Code (including summary outputs from Claude Code upon completion of each prompt)
 
-> Create a hpi_fhfa_prd.md file to represent the Product Requirements Document (PRD) using the whitepaper @hpi_fhfa_whitepaper.pdf. Use it to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD
+> Create a hpi_fhfa_prd.md file to represent the Product Requirements Document (PRD) using the whitepaper @hpi_fhfa_whitepaper.pdf. Use the whitepaper to extract the relevant equations, variables, and coefficients as functional requirements in the hpi_fhfa_prd.md PRD. Think hard
 
 > Use the @hpi_fhfa_prd.md to generate an implementation plan using PySpark and MLlib as the technical stack. The implementation should include comprehensive testing via unit tests and integration tests. Make sure test converage for the core model code is at least 80%. Save this implementation plan as IMPLEMENTATION_PLAN_PYSPARK.md. Think hard.
 
