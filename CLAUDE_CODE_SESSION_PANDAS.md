@@ -143,4 +143,4 @@
   capabilities.
 
 
-  > Use the existing local virtual python environment and run all tests. Fix any test failures. Generate sample data for use by the tests if needed. Save test results in TEST_SUMMARY.md
+  > Use the existing local virtual python environment and run all tests. Fix any test failures. Save test results in TEST_SUMMARY.md
