@@ -14,16 +14,6 @@ The purpose of this proof of concept is to find out if an LLM can take an econom
   3) For Python and PySpark/MLlib ans save it as [IMPLEMENTATION_PLAN_PYSPARK.md](IMPLEMENTATION_PLAN_PYSPARK.md)
 * Step 3 - request Claude Code (with Opus 4) to implement 3 separate implementations of the code using the 3 implementation plans. Each plan includes requirements for comprehensive test coverage (both unit and integration tests)
 
-### How we verified the accuracy of the Product Requirements Document (PRD) and the Implementation Plans
-We used Claude Opus 4 LLM to generate the PRD from the whitepaper. In order to verify the accuracy of the PRD, we asked 2 other LLMs to perform the verification:
-* ChatGPT o3's response: "A line-by-line comparison of the PRD with the mathematical definitions and data-handling rules in Contat & Larson (2022) shows that every equation, variable name, coefficient definition and threshold appearing in the PRD is consistent with the white-paper. No corrections are required."
-* Gemini 2.5 Pro's response: "The Product Requirements Document (PRD) is correct in its representation of the equations, variables, and coefficients described in the FHFA whitepaper. My verification confirms that the mathematical and algorithmic specifications in the PRD accurately reflect the methodology detailed in the source document"
-
-We used Claude Opus 4 LLM to generate the Pandas Implementaion Plan from the PRD. In order to verify the accuracy of the Pandas Implementation Plan, we asked 2 other LLMs to perform the verification:
-* ChatGPT o3's response: "The implementation plan is largely consistent with the PRD—its formulas for the repeat-sales log-difference, the BMN regression, the pooled-index transform, and the weight-based city-level aggregation all match the equations in the PRD and use the correct symbol/variable names. However, a handful of details that matter for getting the numbers to line up in production are still missing or need tightening, especially around how the coefficient vector is anchored, how the index level is reconstructed at inference time, and how the six weighting variants are wired in code."
-* Gemini 2.5 Pro's response: "The content of the implementation plan is a correct and thorough interpretation of the Product Requirements Document (PRD). It successfully translates the business and mathematical requirements into a well-structured technical plan using a modern Python data science stack. The plan correctly interprets the application of equations and variables for both model training and inference."
-
-
 ### PoC Results
 * The pandas implementation resides under impl-pandas/ directory.
   * See [CLAUDE_CODE_SESSION_PANDAS.md](CLAUDE_CODE_SESSION_PANDAS.md) for all prompts issued to Claude Code. A summary response to each prompt by Claude Code is also included. Take time to review each Claude Code session to experience how the LLM thinks and uses train-of-thought to iterate through and fix each test failure.
@@ -38,6 +28,10 @@ We used Claude Opus 4 LLM to generate the Pandas Implementaion Plan from the PRD
   * See [CLAUDE_CODE_SESSION_PYSPARK.md](CLAUDE_CODE_SESSION_PYSPARK.md) for all prompts issued to Claude Code.
   * See [impl-pyspark/README.md](impl-pyspark/README.md) details on the PySpark implementation.
   * Time took to implement: 3 hours
+
+### PoC Assessment
+* See [POC_ASSESSMENT.md](POC_ASSESSMENT.md) for detailed assessment of the generated PRD, implementation plans for the 3 libraries (Pandas, Polars, and PySpark), and the 3 code implementations.
+* We manually confirmed these findings by analyzing, especially the core model logic, ourselves.
 
 ### Running the Generated Code
 * For the Pandas implementation, refer to [impl-pandas/README.md](impl-pandas/README.md)
